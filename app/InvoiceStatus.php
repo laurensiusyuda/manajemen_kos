@@ -4,7 +4,7 @@ namespace App;
 
 enum InvoiceStatus: string
 {
-    case UNPAID = 'UNPAID';
-    case PENDING  = 'PENDING';
-    case PAID = 'PAID';
+    case UNPAID = 'unpaid';
+    case PENDING  = 'pending';
+    case PAID = 'paid';
 }
