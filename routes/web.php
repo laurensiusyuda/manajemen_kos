@@ -1,14 +1,26 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Homepage\HomepageController;
 use App\Http\Controllers\ProfileController;
+use App\Livewire\Admin\Dashboard;
+use App\Livewire\Admin\Properti;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('guest.homepage');
+Route::get('/', [HomepageController::class, 'index'])->name('homepage');
+
+
+Route::controller(AuthenticatedSessionController::class)->group(function () {
+    Route::post('/login', 'store');
+    Route::get('/login', 'create')->name('login');
 });
 
-Route::get('/', [HomepageController::class, 'index'])->name('homepage');
+Route::controller(RegisteredUserController::class)->group(function () {
+    Route::post('/register', 'store');
+    Route::get('/register', 'create')->name('register');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -17,9 +29,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', Dashboard::class)->name('dashboard');
+    Route::get('/properti', Properti::class)->name('properti');
 });
 
 Route::middleware(['auth', 'role:tenant'])->prefix('tenant')->name('tenant.')->group(function () {

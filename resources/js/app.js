@@ -6,5 +6,4 @@ import intersect from '@alpinejs/intersect';
 window.Alpine = Alpine;
 Alpine.plugin(intersect);
 
-Alpine.start();
 window.Alpine = Alpine;

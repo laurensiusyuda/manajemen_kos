@@ -13,4 +13,9 @@ class Properti extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function units()
+    {
+        return $this->hasMany(Unit::class, 'property_id');
+    }
 }

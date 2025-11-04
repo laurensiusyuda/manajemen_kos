@@ -330,7 +330,7 @@
             class="transition-all duration-700 ease-out py-16 bg-blue-600 text-white text-center">
             <h2 class="text-3xl font-bold mb-4">Mulai Cari Kos Sekarang!</h2>
             <p class="mb-6 text-lg">Gabung bersama ribuan pengguna lain dan temukan kos idamanmu hari ini.</p>
-            <a href="#"
+            <a href="{{ route('login') }}"
                 class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">Mulai
                 Sekarang</a>
         </section>
