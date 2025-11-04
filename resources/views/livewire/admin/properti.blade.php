@@ -7,10 +7,6 @@
                 </h1>
                 <button wire:click="create"
                     class="inline-flex items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700">
-                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                    </svg>
                     Tambah Properti Baru
                 </button>
             </div>
@@ -30,6 +26,7 @@
                         <span class="block sm:inline">{{ session('error') }}</span>
                     </div>
                 @endif
+
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     @forelse ($properties as $item)
                         <div
@@ -46,7 +43,8 @@
                                 </div>
 
                                 <div class="border-t pt-4 flex items-center justify-between">
-                                    <a href="#" class="text-sm font-semibold text-blue-600 hover:text-blue-800">
+                                    <a href="{{ route('admin.properti.detail', $item->id) }}"
+                                        class="text-sm font-semibold text-blue-600 hover:text-blue-800">
                                         Kelola Unit &rarr;
                                     </a>
                                     <div class="flex space-x-3">
@@ -139,7 +137,6 @@
                 </div>
             </div>
         @endif
-
 
         @if ($showDeleteModal)
             <div class="fixed z-20 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog"

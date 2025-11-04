@@ -7,6 +7,7 @@ use App\Http\Controllers\Homepage\HomepageController;
 use App\Http\Controllers\ProfileController;
 use App\Livewire\Admin\Dashboard;
 use App\Livewire\Admin\Properti;
+use App\Livewire\Admin\Unit;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
@@ -31,6 +32,8 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/properti', Properti::class)->name('properti');
+    Route::get('/unit', Unit::class)->name('unit');
+    Route::get('/properti/{properti}', Unit::class)->name('properti.detail');
 });
 
 Route::middleware(['auth', 'role:tenant'])->prefix('tenant')->name('tenant.')->group(function () {

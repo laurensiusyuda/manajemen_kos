@@ -122,6 +122,7 @@ class Properti extends Component
             ->withCount('units')
             ->latest()
             ->get();
+
         return view('livewire.admin.properti', ['properties' => $properties]);
     }
 }
