@@ -30,12 +30,12 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     @forelse ($properties as $item)
                         <div
-                            class="bg-white  overflow-hidden shadow-lg rounded-lg transform transition-all hover:scale-[1.02]">
+                            class="bg-white dark:bg-gray-800 overflow-hidden shadow-lg rounded-lg transform transition-all hover:scale-[1.02]">
                             <div class="p-6">
-                                <h3 class="text-xl font-bold text-gray-900 mb-2">
+                                <h3 class="text-xl font-bold dark:text-white text-gray-900 mb-2">
                                     🏢 {{ $item->name }}
                                 </h3>
-                                <p class="text-gray-600 text-sm mb-4">{{ $item->address }}</p>
+                                <p class="text-gray-600 text-sm mb-4 dark:text-gray-500">{{ $item->address }}</p>
                                 <div class="flex space-x-4 mb-5 text-sm">
                                     <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-medium">
                                         {{ $item->units_count }} Unit
@@ -103,16 +103,16 @@
                                                     class="block text-sm font-medium text-gray-700">Nama
                                                     Properti</label>
                                                 <input type="text" wire:model.defer="namaProperti" id="namaProperti"
-                                                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm ...">
+                                                    class="mt-1 block w-full border-gray-800 text-black rounded-md shadow-sm ...">
                                                 @error('namaProperti')
                                                     <span class="text-red-500 text-xs">{{ $message }}</span>
                                                 @enderror
                                             </div>
                                             <div>
                                                 <label for="alamat"
-                                                    class="block text-sm font-medium text-gray-700">Alamat</label>
+                                                    class="block text-sm font-medium  text-gray-700">Alamat</label>
                                                 <textarea wire:model.defer="alamat" id="alamat" rows="3"
-                                                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm ..."></textarea>
+                                                    class="mt-1 block w-full border-gray-800 text-black rounded-md shadow-sm ..."></textarea>
                                                 @error('alamat')
                                                     <span class="text-red-500 text-xs">{{ $message }}</span>
                                                 @enderror

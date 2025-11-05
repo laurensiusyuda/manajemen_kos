@@ -59,7 +59,7 @@
                             $isOccupied = $unit->status == \App\UnitStatus::OCCUPIED;
                         @endphp
                         <div
-                            class="bg-white  overflow-hidden shadow-lg rounded-lg transform transition-all hover:scale-[1.02]">
+                            class="bg-white dark:bg-gray-800 overflow-hidden shadow-lg rounded-lg transform transition-all hover:scale-[1.02]">
                             <div @class([
                                 'p-4 text-sm font-bold uppercase',
                                 'bg-green-100 text-green-800' => $isAvailable,
@@ -68,7 +68,7 @@
                                 {{ Str::title($unit->status->value) }}
                             </div>
                             <div class="p-6">
-                                <h3 class="text-xl font-bold text-gray-900 mb-2">
+                                <h3 class="text-xl font-bold dark:text-white text-gray-900 mb-2">
                                     {{ $unit->name }}
                                 </h3>
                                 <p class="text-blue-600 dark:text-blue-400 font-semibold text-lg mb-4">
@@ -128,7 +128,7 @@
                                                 Unit
                                                 (cth: Kamar 101)</label>
                                             <input type="text" wire:model.defer="unitName" id="unitName"
-                                                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm ...">
+                                                class="mt-1 text-black block w-full border-gray-800 rounded-md shadow-sm ...">
                                             @error('unitName')
                                                 <span class="text-red-500 text-xs">{{ $message }}</span>
                                             @enderror
@@ -142,7 +142,7 @@
                                                     <span class="text-gray-500 sm:text-sm">Rp</span>
                                                 </div>
                                                 <input type="number" wire:model.defer="unitPrice" id="unitPrice"
-                                                    class="mt-1 block w-full pl-7 pr-12 border-gray-300 rounded-md shadow-sm ...">
+                                                    class="mt-1 text-black block w-full pl-7 pr-12 border-gray-800 rounded-md shadow-sm ...">
                                             </div>
                                             @error('unitPrice')
                                                 <span class="text-red-500 text-xs">{{ $message }}</span>
@@ -152,7 +152,7 @@
                                             <label for="unitStatus"
                                                 class="block text-sm font-medium text-gray-700">Status</label>
                                             <select wire:model.defer="unitStatus" id="unitStatus"
-                                                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm ...">
+                                                class="mt-1 text-black block w-full border-gray-800 rounded-md shadow-sm ...">
                                                 <option value="{{ \App\UnitStatus::AVAILABLE->value }}">Tersedia
                                                 </option>
                                                 <option value="{{ \App\UnitStatus::OCCUPIED->value }}">Ditempati

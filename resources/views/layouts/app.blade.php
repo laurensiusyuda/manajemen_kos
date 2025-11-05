@@ -27,15 +27,19 @@
     @auth
         @if (Auth::user()->hasRole('admin'))
             <div x-data="{ modalTambahProperti: false, modalEditProperti: false }" class="flex h-screen bg-gray-100 dark:bg-gray-900">
-                <aside class="flex-shrink-0 w-64 bg-gray-800 text-gray-300 flex flex-col">
-                    <div class="h-24 grid items-center justify-center px-4 text-white font-bold text-lg">
+                <aside class="flex-shrink-0 w-64 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 flex flex-col">
+                    <div class="h-24 grid items-center justify-center px-4 text-gray-800 dark:text-white font-bold text-lg">
                         Manajemen Kos
                     </div>
                     <nav class="flex-1 px-4 py-4 space-y-2">
                         <a href="{{ route('admin.dashboard') }}"
                             :class="{
                                 'bg-blue-600 text-white': @json(request()->routeIs('dashboard')),
-                                'hover:bg-gray-700 hover:text-white':
+                                {{--
+                                    FIX 3:
+                                    - Mengubah hover state untuk light mode menjadi 'hover:bg-gray-100' (background abu-abu muda)
+                                    - dan tetap 'dark:hover:bg-gray-700 dark:hover:text-white' untuk dark mode.
+                                --}} 'hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white':
                                     !@json(request()->routeIs('dashboard'))
                             }"
                             class="flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-150">
@@ -45,7 +49,7 @@
                         <a href="{{ route('admin.properti') }}"
                             :class="{
                                 'bg-blue-600 text-white': @json(request()->routeIs('properti')),
-                                'hover:bg-gray-700 hover:text-white':
+                                'hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white':
                                     !@json(request()->routeIs('properti'))
                             }"
                             class="flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-150">
@@ -55,7 +59,7 @@
                         <a href="#"
                             :class="{
                                 'bg-blue-600 text-white': @json(request()->routeIs('penyewa')),
-                                'hover:bg-gray-700 hover:text-white':
+                                'hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white':
                                     !@json(request()->routeIs('penyewa'))
                             }"
                             class="flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-150">
@@ -65,7 +69,7 @@
                         <a href="#"
                             :class="{
                                 'bg-blue-600 text-white': @json(request()->routeIs('tagihan')),
-                                'hover:bg-gray-700 hover:text-white':
+                                'hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white':
                                     !@json(request()->routeIs('tagihan'))
                             }"
                             class="flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-150">
@@ -73,8 +77,11 @@
                             Tagihan (Invoices)
                         </a>
                         <a href="#"
-                            :class="{ 'bg-blue-600 text-white': @json(request()->routeIs('laporan')), 'hover:bg-gray-700 hover:text-white':
-                                    !@json(request()->routeIs('laporan')) }"
+                            :class="{
+                                'bg-blue-600 text-white': @json(request()->routeIs('laporan')),
+                                'hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white':
+                                    !@json(request()->routeIs('laporan'))
+                            }"
                             class="flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-150">
                             <ion-icon name="bar-chart-outline" class="mr-3 text-lg"></ion-icon>
                             Laporan
@@ -85,12 +92,12 @@
                     @include('layouts.navigation')
                     @isset($header)
                         <header class="bg-white dark:bg-gray-800 shadow">
-                            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-gray-900 dark:text-gray-100">
                                 {{ $header }}
                             </div>
                         </header>
                     @endisset
-                    <main class="flex-1 overflow-x-hidden overflow-y-auto p-6">
+                    <main class="flex-1 overflow-x-hidden overflow-y-auto p-6 text-gray-900 dark:text-gray-100">
                         {{ $slot }}
                     </main>
                 </div>

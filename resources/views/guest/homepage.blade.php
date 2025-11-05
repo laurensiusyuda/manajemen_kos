@@ -85,7 +85,7 @@
                     <div class="min-w-full min-h-[50vh] flex items-center justify-center p-4"
                         style="background: url('https://images.unsplash.com/photo-1614678223955-5ff3a3a0283a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1287') no-repeat center center / cover">
                         <div
-                            class="p-8 rounded-lg shadow-md text-center backdrop-blur-[10px] max-w-2xl dark:text-white text-gray-900">
+                            class="p-8 rounded-lg shadow-md text-center backdrop-blur-[10px] max-w-2xl dark:text-white text-white">
                             <h3 class="mt-5 text-2xl font-bold">
                                 Pencarian Cepat & Akurat
                             </h3>
@@ -98,7 +98,7 @@
                     <div class="min-w-full min-h-[60vh] flex items-center justify-center p-4"
                         style="background: url('https://images.unsplash.com/photo-1745091722150-dc7aaf6eeb21?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=3387') no-repeat center center / cover">
                         <div
-                            class="p-8 rounded-lg shadow-md text-center backdrop-blur-[10px] max-w-2xl dark:text-white text-gray-900">
+                            class="p-8 rounded-lg shadow-md text-center backdrop-blur-[10px] max-w-2xl dark:text-white text-white">
                             <h3 class="mt-5 text-2xl font-bold">Listing
                                 Terverifikasi
                             </h3>
@@ -112,7 +112,7 @@
                     <div class="min-w-full min-h-[60vh] flex items-center justify-center p-4"
                         style="background: url('https://images.unsplash.com/photo-1758522484692-efa6ce38a25f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=3432') no-repeat center center / cover">
                         <div
-                            class="p-8 rounded-lg shadow-md text-center backdrop-blur-[10px] max-w-2xl dark:text-white text-gray-900">
+                            class="p-8 rounded-lg shadow-md text-center backdrop-blur-[10px] max-w-2xl dark:text-white text-white">
                             <h3 class="mt-5 text-2xl font-bold">Booking Online
                                 Aman
                             </h3>

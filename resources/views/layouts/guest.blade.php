@@ -12,10 +12,12 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
 </head>
 
-<body class="font-mono antialiased bg-gray-900">
+<body class="font-mono antialiased bg-white dark:bg-gray-900">
     {{ $slot }}
+    @livewireScripts
 </body>
 
 </html>
