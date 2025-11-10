@@ -18,4 +18,9 @@ class Properti extends Model
     {
         return $this->hasMany(Unit::class, 'property_id');
     }
+
+    public function tenants()
+    {
+        return $this->hasMany(Tenant::class, 'property_id');
+    }
 }

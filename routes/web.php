@@ -6,8 +6,11 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Homepage\HomepageController;
 use App\Http\Controllers\ProfileController;
 use App\Livewire\Admin\Dashboard;
+use App\Livewire\Admin\Invoice;
 use App\Livewire\Admin\Properti;
+use App\Livewire\Admin\Tenant;
 use App\Livewire\Admin\Unit;
+use App\Livewire\User\Dashboard as UserDashboard;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
@@ -34,12 +37,12 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::get('/properti', Properti::class)->name('properti');
     Route::get('/unit', Unit::class)->name('unit');
     Route::get('/properti/{properti}', Unit::class)->name('properti.detail');
+    Route::get('/tenant', Tenant::class)->name('tenant');
+    Route::get('/invoice', Invoice::class)->name('invoice');
 });
 
 Route::middleware(['auth', 'role:tenant'])->prefix('tenant')->name('tenant.')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', UserDashboard::class)->name('dashboard');
 });
 
 require __DIR__ . '/auth.php';

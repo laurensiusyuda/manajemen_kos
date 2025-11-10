@@ -32,21 +32,17 @@
                         Manajemen Kos
                     </div>
                     <nav class="flex-1 px-4 py-4 space-y-2">
-                        <a href="{{ route('admin.dashboard') }}"
+                        <a wire:navigate href="{{ route('admin.dashboard') }}"
                             :class="{
                                 'bg-blue-600 text-white': @json(request()->routeIs('dashboard')),
-                                {{--
-                                    FIX 3:
-                                    - Mengubah hover state untuk light mode menjadi 'hover:bg-gray-100' (background abu-abu muda)
-                                    - dan tetap 'dark:hover:bg-gray-700 dark:hover:text-white' untuk dark mode.
-                                --}} 'hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white':
+                                'hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white':
                                     !@json(request()->routeIs('dashboard'))
                             }"
                             class="flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-150">
                             <ion-icon name="grid-outline" class="mr-3 text-lg"></ion-icon>
                             Dashboard
                         </a>
-                        <a href="{{ route('admin.properti') }}"
+                        <a wire:navigate href="{{ route('admin.properti') }}"
                             :class="{
                                 'bg-blue-600 text-white': @json(request()->routeIs('properti')),
                                 'hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white':
@@ -56,7 +52,7 @@
                             <ion-icon name="business-outline" class="mr-3 text-lg"></ion-icon>
                             Properti & Unit
                         </a>
-                        <a href="#"
+                        <a wire:navigate href="{{ route('admin.tenant') }}"
                             :class="{
                                 'bg-blue-600 text-white': @json(request()->routeIs('penyewa')),
                                 'hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white':
@@ -66,7 +62,7 @@
                             <ion-icon name="people-outline" class="mr-3 text-lg"></ion-icon>
                             Penyewa
                         </a>
-                        <a href="#"
+                        <a wire:navigate href="{{ route('admin.invoice') }}"
                             :class="{
                                 'bg-blue-600 text-white': @json(request()->routeIs('tagihan')),
                                 'hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white':
@@ -76,7 +72,7 @@
                             <ion-icon name="receipt-outline" class="mr-3 text-lg"></ion-icon>
                             Tagihan (Invoices)
                         </a>
-                        <a href="#"
+                        {{-- <a href="#"
                             :class="{
                                 'bg-blue-600 text-white': @json(request()->routeIs('laporan')),
                                 'hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white':
@@ -85,7 +81,7 @@
                             class="flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-150">
                             <ion-icon name="bar-chart-outline" class="mr-3 text-lg"></ion-icon>
                             Laporan
-                        </a>
+                        </a> --}}
                     </nav>
                 </aside>
                 <div class="flex-1 flex flex-col overflow-hidden">
@@ -103,6 +99,7 @@
                 </div>
             </div>
         @elseif (Auth::user()->hasRole('tenant'))
+            @include('layouts.navigation')
             @isset($header)
                 <header class="bg-white dark:bg-gray-800 shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">

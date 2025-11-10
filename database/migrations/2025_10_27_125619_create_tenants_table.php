@@ -15,9 +15,15 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('property_id');
+
             $table->foreign('property_id')->references('id')->on('propertis')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->unsignedBigInteger('unit_id')->nullable()->unique();
+            $table->foreign('unit_id')->references('id')->on('units')->onDelete('set null');
+
             $table->string('full_name');
+            $table->string('status');
             $table->string('phone_number');
             $table->date('move_in_date');
             $table->timestamps();

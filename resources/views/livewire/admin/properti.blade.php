@@ -11,7 +11,6 @@
                 </button>
             </div>
         </header>
-
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 @if (session()->has('success'))
@@ -26,7 +25,6 @@
                         <span class="block sm:inline">{{ session('error') }}</span>
                     </div>
                 @endif
-
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     @forelse ($properties as $item)
                         <div
@@ -81,59 +79,56 @@
             </div>
         </div>
         @if ($showModal)
-            <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog"
-                aria-modal="true">
-                <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-                    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-                    <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-
-                    <div
-                        class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-
-                        <form wire:submit.prevent="{{ $propertyId ? 'update' : 'store' }}">
-                            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                                <div class="sm:flex sm:items-start">
-                                    <div class="w-full mt-3 text-center sm:mt-0 sm:text-left">
-                                        <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
-                                            {{ $propertyId ? 'Edit Properti' : 'Tambah Properti Baru' }}
-                                        </h3>
-                                        <div class="mt-4 space-y-4">
-                                            <div>
-                                                <label for="namaProperti"
-                                                    class="block text-sm font-medium text-gray-700">Nama
-                                                    Properti</label>
-                                                <input type="text" wire:model.defer="namaProperti" id="namaProperti"
-                                                    class="mt-1 block w-full border-gray-800 text-black rounded-md shadow-sm ...">
-                                                @error('namaProperti')
-                                                    <span class="text-red-500 text-xs">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                            <div>
-                                                <label for="alamat"
-                                                    class="block text-sm font-medium  text-gray-700">Alamat</label>
-                                                <textarea wire:model.defer="alamat" id="alamat" rows="3"
-                                                    class="mt-1 block w-full border-gray-800 text-black rounded-md shadow-sm ..."></textarea>
-                                                @error('alamat')
-                                                    <span class="text-red-500 text-xs">{{ $message }}</span>
-                                                @enderror
-                                            </div>
+            <div class="fixed z-10 inset-0 w-screen h-screen flex items-center justify-center  overflow-y-auto"
+                aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" wire:click="closeModal"
+                    aria-hidden="true">
+                </div>
+                <div
+                    class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                    <form wire:submit.prevent="{{ $propertyId ? 'update' : 'store' }}">
+                        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                            <div class="sm:flex sm:items-start">
+                                <div class="w-full mt-3 text-center sm:mt-0 sm:text-left">
+                                    <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                                        {{ $propertyId ? 'Edit Properti' : 'Tambah Properti Baru' }}
+                                    </h3>
+                                    <div class="mt-4 space-y-4">
+                                        <div>
+                                            <label for="namaProperti"
+                                                class="block text-sm font-medium text-gray-700">Nama
+                                                Properti</label>
+                                            <input type="text" wire:model.defer="namaProperti" id="namaProperti"
+                                                class="mt-1 w-full rounded-md border-gray-800 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-black">
+                                            @error('namaProperti')
+                                                <span class="text-red-500 text-xs">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div>
+                                            <label for="alamat"
+                                                class="block text-sm font-medium  text-gray-700">Alamat</label>
+                                            <textarea wire:model.defer="alamat" id="alamat" rows="3"
+                                                class="mt-1 w-full rounded-md border-gray-800 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-black"></textarea>
+                                            @error('alamat')
+                                                <span class="text-red-500 text-xs">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                                <button type="submit" wire:loading.attr="disabled"
-                                    class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 ... sm:ml-3 sm:w-auto sm:text-sm">
-                                    <span wire:loading.remove wire:target="store, update">Simpan</span>
-                                    <span wire:loading wire:target="store, update">Menyimpan...</span>
-                                </button>
-                                <button wire:click="closeModal" type="button"
-                                    class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 ... sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
-                                    Batal
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                        </div>
+                        <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                            <button type="submit" wire:loading.attr="disabled"
+                                class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 ... sm:ml-3 sm:w-auto sm:text-sm">
+                                <span wire:loading.remove wire:target="store, update">Simpan</span>
+                                <span wire:loading wire:target="store, update">Menyimpan...</span>
+                            </button>
+                            <button wire:click="closeModal" type="button"
+                                class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-black hover:bg-gray-50 ... sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                                Batal
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         @endif
