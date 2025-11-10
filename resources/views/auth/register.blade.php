@@ -41,7 +41,8 @@
                 </x-primary-button>
 
                 <div class="mt-6 text-center">
-                    <a href="{{ route('login') }}" class="text-gray-600 dark:text-gray-300 hover:underline">Already
+                    <a wire:navigate href="{{ route('login') }}"
+                        class="text-gray-600 dark:text-gray-300 hover:underline">Already
                         registered ?</a>
                 </div>
             </form>

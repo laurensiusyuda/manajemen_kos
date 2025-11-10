@@ -43,7 +43,7 @@
 
                 </x-primary-button>
                 <div class="text-gray-600 dark:text-gray-300 hover:underline mt-6 text-center">
-                    <a href="{{ route('register') }}" class="hover:underline">Sign up Here</a>
+                    <a wire:navigate href="{{ route('register') }}" class="hover:underline">Sign up Here</a>
                 </div>
             </form>
         </div>
