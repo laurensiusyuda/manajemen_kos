@@ -31,7 +31,7 @@ class Tenant extends Component
     public $selectedUnit = null;
     public $propertiList = [];
     public $unitList = [];
-
+    
     public $tenant_id;
 
     public $showModal = false;

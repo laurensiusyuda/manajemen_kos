@@ -1,4 +1,4 @@
-Spatie\Permission\Models\Role::create(['name' => 'tenant']); <?php
+<?php
 
 namespace App;
 
